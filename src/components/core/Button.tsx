@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import { motion } from "framer-motion";
 
 const VARIANTS: { [key: string]: string } = {
   primary: "bg-yellow-primary text-black-hero px-5 py-3",
@@ -15,13 +16,20 @@ type TButton = {
 
 function Button({ type, icon, className, children }: TButton) {
   return (
-    <button
-      className={`${className} flex cursor-pointer items-center justify-center space-x-2 rounded-md text-lg font-semibold normal-case shadow-sm transition duration-300 hover:shadow-md
+    <motion.button
+      className={`${className} flex cursor-pointer items-center justify-center space-x-2  rounded-md text-lg font-semibold normal-case 
    disabled:cursor-not-allowed disabled:opacity-50 ${VARIANTS[type]}`}
+      whileHover={{
+        scale: 1.2,
+        boxShadow: "0px 0px 8px rgb(255,255,0)",
+      }}
+      transition={{
+        duration: 0.3,
+      }}
     >
       {icon && <p>{icon}</p>}
       {children}
-    </button>
+    </motion.button>
   );
 }
 
