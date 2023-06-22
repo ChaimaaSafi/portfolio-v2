@@ -38,33 +38,49 @@ function Home({}: Props) {
           </motion.ul>
         </nav>
       </header>
-      <motion.div className="px-10 mt-10 flex justify-between items-center space-x-2">
+      <motion.div
+        animate={{ x: [100, 500, 0], opacity: 1, scale: 1 }}
+        transition={{
+          duration: 1.2,
+          ease: [0.2, 0.2, 0.76, 1],
+        }}
+        initial={{ opacity: 0, scale: 0.5 }}
+        className="px-10 mt-10 flex justify-between items-center space-x-2"
+      >
         <div className="flex flex-col text-white">
-          <h2 className="text-lg font-semibold">Oh Hey! My name is</h2>
-          <motion.h1
-            animate={{ x: [50, 150, 0], opacity: 1, scale: 1 }}
-            transition={{
-              duration: 2,
-              ease: [0.2, 0.2, 0.5, 1],
-            }}
-            initial={{ opacity: 0, scale: 0.5 }}
-            whileHover={{
-              scale: 1.2,
-              boxShadow: "0px 0px 20px rgb(255,255,0)",
-              transition: {
-                duration: 0.5,
-              },
-            }}
-            className="text-5xl font-bold my-5 leading-6 uppercase text-yellow-primary"
-          >
+          <h2 className="text-xl font-semibold">Oh Hey! My name is</h2>
+          <h1 className="text-5xl font-bold my-5leading-6 uppercase text-yellow-primary ">
             Chaimaa Safi
-          </motion.h1>
-          <p className="text-base font-medium">A Front-end Developer</p>
+          </h1>
+          <p className="text-lg font-medium">A Front-end Developer</p>
           <div className="w-[200px] mt-4">
             <Button type="primary">Know more</Button>
           </div>
         </div>
-        <div className="w-[480px] h-[500px] bg-red-400"></div>
+        <div className="relative">
+          <motion.div
+            whileHover={{
+              scale: 0.8,
+              zIndex: 50,
+            }}
+            transition={{
+              duration: 0.7,
+              type: "spring",
+            }}
+            className="absolute w-[350px] h-[500px] bg-yellow-400 rounded-lg"
+          />
+          <motion.div
+            animate={{ x: "-20vh", y: 20 }}
+            transition={{
+              duration: 1.4,
+              type: "spring",
+              mass: 0.5,
+              damping: 8,
+              delay: 1,
+            }}
+            className="w-[330px] h-[450px] bg-red-400 rounded-lg"
+          />
+        </div>
       </motion.div>
     </section>
   );
