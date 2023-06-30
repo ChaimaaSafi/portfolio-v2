@@ -8,6 +8,21 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 type Props = {};
 
+const LINKS = [
+  {
+    label: "About",
+    link: "/#about",
+  },
+  {
+    label: "Work",
+    link: "/#work",
+  },
+  {
+    label: "Contact",
+    link: "/#contact",
+  },
+];
+
 function Home({}: Props) {
   const targetRef = useRef<HTMLDivElement>(null);
   const [isOpen, setOpen] = useState(false);
@@ -25,12 +40,9 @@ function Home({}: Props) {
             isOpen ? "" : "px-3"
           } md:px-10`}
         >
-          <Link
-            href={"/"}
-            className="text-base md:text-3xl font-black text-white uppercase"
-          >
+          <p className="text-base md:text-3xl font-black text-white uppercase">
             S<span className="font-extrabold text-yellow-hero">Chaimaa</span>
-          </Link>
+          </p>
           <div className="z-50 md:hidden">
             <Hamburger toggled={isOpen} toggle={setOpen} color="#FFE569" />
           </div>
@@ -41,29 +53,27 @@ function Home({}: Props) {
                 : "hidden"
             } md:flex md:items-center md:space-x-10 md:px-5`}
           >
-            {["About", "Work", "Contact"].map(
-              (value: string, index: number) => (
-                <Link
-                  key={index}
-                  href={`/${value}`}
-                  className="py-2 mt-28 md:py-0 md:mt-0"
+            {LINKS.map(({ label, link }, index: number) => (
+              <Link
+                key={index}
+                href={link}
+                className="py-2 mt-28 md:py-0 md:mt-0"
+              >
+                <motion.li
+                  whileHover={{
+                    scale: 1.3,
+                    originX: 0,
+                    color: "#F8C43A",
+                  }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 300,
+                  }}
                 >
-                  <motion.li
-                    whileHover={{
-                      scale: 1.3,
-                      originX: 0,
-                      color: "#F8C43A",
-                    }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 300,
-                    }}
-                  >
-                    {value}
-                  </motion.li>
-                </Link>
-              )
-            )}
+                  {label}
+                </motion.li>
+              </Link>
+            ))}
           </motion.ul>
         </nav>
       </header>
@@ -88,9 +98,9 @@ function Home({}: Props) {
           <p className="text-base lg:text-lg font-medium">
             A Front-end Developer
           </p>
-          <div className="md:w-[200px] mt-4">
+          <Link href="/#about" className="md:w-[200px] mt-4">
             <Button type="primary">Know more</Button>
-          </div>
+          </Link>
         </div>
         <div className="block md:hidden w-full h-[300px] bg-yellow-400 rounded-lg" />
         <div className="relative hidden md:block ">
