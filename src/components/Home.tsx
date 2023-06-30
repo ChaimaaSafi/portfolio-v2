@@ -1,24 +1,53 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useRef, useState } from "react";
 import Me from "@/public/assets/me2.png";
+import { Sling as Hamburger } from "hamburger-react";
 import Button from "./core/Button";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 type Props = {};
 
 function Home({}: Props) {
+  const targetRef = useRef<HTMLDivElement>(null);
+  const [isOpen, setOpen] = useState(false);
+
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start start", "end start"],
+  });
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   return (
-    <section className="bg-black-hero flex flex-col pb-10 h-screen">
+    <section className="bg-black-hero flex flex-col md:pb-10 h-screen w-full">
       <header className="bg-[#222831] border border-black-hero">
-        <nav className="flex items-center justify-between py-4 px-10">
-          <Link href={"/"} className="text-3xl font-black text-white uppercase">
+        <nav
+          className={`flex items-center justify-between py-4 ${
+            isOpen ? "" : "px-3"
+          } md:px-10`}
+        >
+          <Link
+            href={"/"}
+            className="text-base md:text-3xl font-black text-white uppercase"
+          >
             S<span className="font-extrabold text-yellow-hero">Chaimaa</span>
           </Link>
-          <motion.ul className="flex items-center space-x-10 px-5">
+          <div className="z-50 md:hidden">
+            <Hamburger toggled={isOpen} toggle={setOpen} color="#FFE569" />
+          </div>
+          <motion.ul
+            className={`${
+              isOpen
+                ? "fixed top-0 flex h-screen bg-gray-600 w-full flex-col items-center text-center md:hidden"
+                : "hidden"
+            } md:flex md:items-center md:space-x-10 md:px-5`}
+          >
             {["About", "Work", "Contact"].map(
               (value: string, index: number) => (
-                <Link key={index} href={`/${value}`}>
+                <Link
+                  key={index}
+                  href={`/${value}`}
+                  className="py-2 mt-28 md:py-0 md:mt-0"
+                >
                   <motion.li
                     whileHover={{
                       scale: 1.3,
@@ -39,25 +68,32 @@ function Home({}: Props) {
         </nav>
       </header>
       <motion.div
-        animate={{ x: [100, 500, 0], opacity: 1, scale: 1 }}
+        style={{ opacity }}
+        ref={targetRef}
+        animate={{ x: [100, -100, 0], opacity: 1, scale: 1 }}
         transition={{
           duration: 1.2,
           ease: [0.2, 0.2, 0.76, 1],
         }}
         initial={{ opacity: 0, scale: 0.5 }}
-        className="px-10 mt-10 flex justify-between items-center space-x-2"
+        className="md:px-10 px-3 flex md:justify-between md:items-center md:space-x-2 md:flex-row flex-col h-full py-10"
       >
-        <div className="flex flex-col text-white">
-          <h2 className="text-xl font-semibold">Oh Hey! My name is</h2>
-          <h1 className="text-5xl font-bold my-5leading-6 uppercase text-yellow-primary ">
+        <div className="flex flex-col space-y-1.5 text-white order-last md:order-first mt-10 md:mt-0">
+          <h2 className="text-base lg:text-xl font-semibold">
+            Oh Hey! My name is
+          </h2>
+          <h1 className="text-xl lg:text-5xl font-bold my-5 leading-6 uppercase text-yellow-primary ">
             Chaimaa Safi
           </h1>
-          <p className="text-lg font-medium">A Front-end Developer</p>
-          <div className="w-[200px] mt-4">
+          <p className="text-base lg:text-lg font-medium">
+            A Front-end Developer
+          </p>
+          <div className="md:w-[200px] mt-4">
             <Button type="primary">Know more</Button>
           </div>
         </div>
-        <div className="relative">
+        <div className="block md:hidden w-full h-[300px] bg-yellow-400 rounded-lg" />
+        <div className="relative hidden md:block ">
           <motion.div
             whileHover={{
               scale: 0.8,
@@ -67,7 +103,7 @@ function Home({}: Props) {
               duration: 0.7,
               type: "spring",
             }}
-            className="absolute w-[350px] h-[500px] bg-yellow-400 rounded-lg"
+            className="absolute lg:w-[350px] lg:h-[500px] w-[250px] h-[360px] bg-yellow-400 rounded-lg"
           />
           <motion.div
             animate={{ x: "-20vh", y: 20 }}
@@ -78,7 +114,7 @@ function Home({}: Props) {
               damping: 8,
               delay: 1,
             }}
-            className="w-[330px] h-[450px] bg-red-400 rounded-lg"
+            className="lg:w-[330px] lg:h-[450px] w-[230px] h-[300px] bg-red-400 rounded-lg"
           />
         </div>
       </motion.div>
