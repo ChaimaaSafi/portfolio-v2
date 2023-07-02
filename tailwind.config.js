@@ -14,6 +14,9 @@ module.exports = {
           hero: "#FFE569",
           primary: "#F8C43A",
         },
+        orange: {
+          hero: "#FF8300",
+        },
       },
       fontFamily: {
         mont: ["var(--font-mont)", ...fontFamily.sans],
