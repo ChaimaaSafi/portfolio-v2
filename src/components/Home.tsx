@@ -1,29 +1,34 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Me from "@/public/assets/me2.png";
 import { Sling as Hamburger } from "hamburger-react";
 import Button from "./core/Button";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-type Props = {};
+type Props = {
+  setpageIndex: (index: number) => void;
+};
 
 const LINKS = [
   {
     label: "About",
-    link: "/#about",
+    link: "#about",
+    index: 1,
   },
   {
     label: "Work",
-    link: "/#work",
+    link: "#work",
+    index: 2,
   },
   {
     label: "Contact",
-    link: "/#contact",
+    link: "#contact",
+    index: 3,
   },
 ];
 
-function Home({}: Props) {
+function Home() {
   const targetRef = useRef<HTMLDivElement>(null);
   const [isOpen, setOpen] = useState(false);
 
@@ -32,6 +37,11 @@ function Home({}: Props) {
     offset: ["start start", "end start"],
   });
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const handleClick = (targetId: string) => {
+    const targetElement = document.getElementById("your-element-id");
+    targetElement?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section className="bg-black-hero flex flex-col md:pb-10 h-screen w-full">
       <header className="bg-[#222831] border border-black-hero">
@@ -53,9 +63,9 @@ function Home({}: Props) {
                 : "hidden"
             } md:flex md:items-center md:space-x-10 md:px-5`}
           >
-            {LINKS.map(({ label, link }, index: number) => (
+            {LINKS.map(({ label, link, index }, key: number) => (
               <Link
-                key={index}
+                key={key}
                 href={link}
                 className="py-2 mt-28 md:py-0 md:mt-0"
               >

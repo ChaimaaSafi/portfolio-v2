@@ -4,27 +4,29 @@ import { motion, useAnimation, useScroll, useTransform } from "framer-motion";
 const scrollVariants = {
   hidden: {
     opacity: 0,
-    height: 0,
+    y: 0,
   },
   show: {
     opacity: 1,
-    height: "100vh",
+    y: "100wh",
     transition: {
       duration: 0.75,
     },
   },
   hide: {
     opacity: 0,
-    height: 0,
+    y: 0,
     transition: {
       duration: 0.75,
     },
   },
 };
-function About() {
-  const [isVisible, setIsVisible] = useState(false);
-  const controls = useAnimation();
 
+type Props = {
+  pageIndex: number;
+};
+function About() {
+  const controls = useAnimation();
   const targetRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -37,7 +39,6 @@ function About() {
     ["0vh", "-50vh", "-100vh"]
   );
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.8, 0.2]);
-  const scaleImg = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.8, 0.2]);
   return (
     <motion.section className="bg-black-primary h-screen text-white" id="about">
       <motion.div
