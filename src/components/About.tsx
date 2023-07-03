@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useAnimation, useScroll, useTransform } from "framer-motion";
+import Link from "next/link";
 
 const scrollVariants = {
   hidden: {
@@ -44,9 +45,9 @@ function About() {
       <motion.div
         style={{ y, scale, opacity }}
         ref={targetRef}
-        className="max-w-[1400px] mx-auto h-full px-3 flex justify-between space-x-3  items-center"
+        className="md:max-w-[1400px] py-5 md:mx-auto h-full px-3 flex flex-col md:flex-row justify-between md:space-x-3  items-center"
       >
-        <div className="w-3/5 text-justify">
+        <div className="md:w-3/5 text-justify order-last md:order-first">
           <h1 className="text-xl capitalize font-semibold text-yellow-primary mb-5">
             About me
           </h1>
@@ -58,13 +59,19 @@ function About() {
             appreciation for travel, as it fuels my creativity and broadens my
             perspective.{" "}
             <span className="text-orange-hero font-light">
-              Join me on this journey as I showcase my work and share my love
-              for development
+              Join me on this journey as I showcase my{" "}
+              <Link
+                href="#work"
+                className="hover:text-white text-orange-hero transition-all duration-150"
+              >
+                work
+              </Link>{" "}
+              and share my love for development
             </span>
           </p>
         </div>
         <div>
-          <div className="w-[450px] h-[500px] bg-yellow-400 rounded-lg" />
+          <div className="mb-5 md:mb-0 md:w-[450px] md:h-[500px] h-[250px] w-[300px] bg-yellow-400 rounded-lg" />
         </div>
       </motion.div>
     </motion.section>
