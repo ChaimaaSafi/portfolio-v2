@@ -23,6 +23,8 @@ li {
   list-style-type: none;
 }
 
+
+
 .bg-hero-home {
   background: #141e30; /* fallback for old browsers */
   background: -webkit-linear-gradient(
@@ -58,7 +60,7 @@ background: linear-gradient(to right, #1D2671, #C33764); /* W3C, IE 10+/ Edge, F
 }
 
 .prose a {
-  @apply transition-all;
+  @apply transition-all text-orange-500  underline;
 }
 
 .prose .anchor:after {
