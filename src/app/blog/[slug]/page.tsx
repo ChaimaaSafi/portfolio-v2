@@ -1,29 +1,38 @@
 "use client";
-
 import Image from "next/image";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import { allPosts } from "contentlayer/generated";
 
 
 export default function Page({ params }: any) {
-  const post = allPosts[0];
+
+  const post = allPosts.find((p) => p.slug === params.slug);
+  //@ts-ignore
   const MDXContent = useMDXComponent(post?.body?.code);
+
+  if(!post){
+    return (
+      <div>
+        <p>Something Wrong</p>
+      </div>
+    )
+  }
 
   return (
     <section className="w-full ">
       <div  className="relative mx-auto flex max-w-[1250px] flex-col pt-40  lg:mt-10 lg:py-20">
       <h1 className="mx-5 py-5 text-center text-2xl font-medium  lg:m-6 lg:p-10 lg:text-4xl">
-          {post.title}
+          {post?.title}
         </h1>
         <div className="mx-2 lg:h-auto lg:flex-1">
           <Image
-            src={post.hero as string}
-            alt={post.title}
+            src={post?.hero as string}
+            alt={post?.title || ""}
             width="1200"
             height="800"
             className="rounded-lg shadow-lg object-cover"
             priority
-            blurDataURL={`/_next/image?url=${post.hero}&w=16&q=1`}
+            blurDataURL={`/_next/image?url=${post?.hero}&w=16&q=1`}
             placeholder="blur"
           />
         </div>
