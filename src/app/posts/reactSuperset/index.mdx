@@ -1,0 +1,91 @@
+---
+title: React Superset SDK - Full Authentication Made Easy
+date: 2023-10-08
+hero: /assets/pusher-nextjs/hero.png
+description: The blog introduces the React Superset SDK, simplifying secure embedding of Superset dashboards in React apps. It highlights authentication setup for data access and emphasizes enhanced data exploration and decision-making.
+---
+
+# React Superset SDK: Full Authentication Made Easy
+
+In today's data-driven world, the ability to extract valuable insights from vast amounts of information is crucial for making informed decisions. This is where Superset, an open-source data exploration and visualization platform, shines. And with the React Superset SDK, Explore the power of Superset's robust capabilities in your React applications has never been easier.
+
+## **Introducing the React Superset SDK**
+
+The React Superset SDK is a comprehensive set of tools and components designed to simplify the process of embedding Superset dashboards and charts into your React applications. Leveraging the power of the Superset API, it provides seamless access to Superset's data sources, charts, and dashboards.
+
+## **Setting Up Full Authentication**
+
+Now, let's dive into how you can leverage the React Superset SDK to set up full authentication for your application. The first step is to import the <span style={{backgroundColor: "#FFD6D6", fontWeight: "500", padding: "1px 3px"}}>embedDashboard</span> function from the SDK:
+
+```jsx
+
+import { embedDashboard } from "@superset-ui/embedded-sdk";
+
+```
+
+Next, create an authentication object that contains the user's credentials. This object will be passed as an argument to the <span style={{backgroundColor: "#FFD6D6", fontWeight: "500", padding: "1px 3px"}}>embedDashboard</span> function:
+
+```jsx
+
+const auth = {
+  username: "{username}",
+  password: "{password}",
+};
+
+```
+
+Replace <span style={{backgroundColor: "#FFD6D6", fontWeight: "500", padding: "1px 3px"}}>{username}</span> and <span style={{backgroundColor: "#FFD6D6", fontWeight: "500", padding: "1px 3px"}}>{password}</span> with the actual credentials of the user.
+
+Finally, embed the dashboard into your React application by calling the <span style={{backgroundColor: "#FFD6D6", fontWeight: "500", padding: "1px 3px"}}>embedDashboard</span> function:
+
+```jsx
+
+embedDashboard({
+  dashboardPath: "/dashboard/{dashboard_id}/",
+  container: document.getElementById("{container_id}"),
+  auth,
+});
+
+```
+
+Replace <span style={{backgroundColor: "#FFD6D6", fontWeight: "500", padding: "1px 3px"}}>{dashboard_id}</span> with the ID of the dashboard you want to embed and <span style={{backgroundColor: "#FFD6D6", fontWeight: "500", padding: "1px 3px"}}>{container_id}</span> with the ID of the HTML element where you want to embed the dashboard.
+
+## **Embedding Superset Dashboard in a React Component**
+
+To render the Superset dashboard in a React component, you can create a container element with a unique ID and pass that ID to the <span style={{backgroundColor: "#FFD6D6", fontWeight: "500", padding: "1px 3px"}}>embedDashboard</span> function. Here's an example:
+
+```jsx
+
+import React, { useEffect } from "react";
+import { embedDashboard } from "@superset-ui/embedded-sdk";
+
+const MyDashboard = () => {
+  useEffect(() => {
+    const auth = {
+      username: "{username}",
+      password: "{password}",
+    };
+
+    embedDashboard({
+      dashboardPath: "/dashboard/{dashboard_id}/",
+      container: document.getElementById("my-dashboard-container"),
+      auth,
+    });
+  }, []);
+
+  return <div id="my-dashboard-container" />;
+};
+
+export default MyDashboard;
+
+```
+
+In this example, we create a React component called <span style={{backgroundColor: "#FFD6D6", fontWeight: "500", padding: "1px 3px"}}>MyDashboard</span>. Inside the component, we use the <span style={{backgroundColor: "#FFD6D6", fontWeight: "500", padding: "1px 3px"}}>useEffect</span> hook to call the <span style={{backgroundColor: "#FFD6D6", fontWeight: "500", padding: "1px 3px"}}>embedDashboard</span> function when the component mounts. We pass the ID of the container element (<span style={{backgroundColor: "#FFD6D6", fontWeight: "500", padding: "1px 3px"}}>my-dashboard-container</span>) to the <span style={{backgroundColor: "#FFD6D6", fontWeight: "500", padding: "1px 3px"}}>embedDashboard</span> function and then return the container element from the component.
+
+## **Secure and Authorized Access to Data**
+
+With the React Superset SDK and full authentication, you can have confidence in the security of your data. Only authorized users will have access to the embedded Superset dashboards, ensuring that your sensitive information remains protected.
+
+## **Conclusion**
+
+In conclusion, the React Superset SDK offers a straightforward solution for integrating Superset's data exploration and visualization capabilities into your React applications. By leveraging the SDK, you can effortlessly embed Superset dashboards and charts, tap into various data sources, and deliver rich data experiences to your users. Simplify the process of data visualization and unlock the power of Superset with the React Superset SDK.

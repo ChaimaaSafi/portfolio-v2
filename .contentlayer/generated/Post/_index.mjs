@@ -2,5 +2,6 @@
 
 import cloudinary__indexMdx from './cloudinary__index.mdx.json' assert { type: 'json' }
 import pusher__indexMdx from './pusher__index.mdx.json' assert { type: 'json' }
+import reactSuperset__indexMdx from './reactSuperset__index.mdx.json' assert { type: 'json' }
 
-export const allPosts = [cloudinary__indexMdx, pusher__indexMdx]
+export const allPosts = [cloudinary__indexMdx, pusher__indexMdx, reactSuperset__indexMdx]
