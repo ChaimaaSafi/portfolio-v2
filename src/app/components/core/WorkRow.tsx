@@ -14,7 +14,7 @@ type TWork = {
 function WorkRow({ description, link, name, imgSrc, className }: TWork) {
   return (
     <div className={`md:px-2  w-full ${className}`}>
-      <div className="relative rounded-lg mb-10 h-[200px] md:h-[350px] md:w-[800px] w-full">
+      <div className="relative rounded-lg mb-10 h-[200px] md:h-[350px] lg:w-[800px] w-full">
         <Image
           src={imgSrc}
           alt={name}
