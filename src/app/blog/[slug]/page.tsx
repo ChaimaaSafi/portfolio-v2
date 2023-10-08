@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import { allPosts } from "contentlayer/generated";
+import { FacebookShare, LinkedinShare, RedditShare, TwitterShare } from "@/components/core/ShareTo";
 
 
 export default function Page({ params }: any) {
@@ -20,7 +21,7 @@ export default function Page({ params }: any) {
 
   return (
     <section className="w-full ">
-      <div  className="relative mx-auto flex max-w-[1250px] flex-col pt-40  lg:mt-10 lg:py-20">
+      <div  className="relative mx-auto flex max-w-[1250px] flex-col pt-10  lg:py-5">
       <h1 className="mx-5 py-5 text-center text-2xl font-medium  lg:m-6 lg:p-10 lg:text-4xl">
           {post?.title}
         </h1>
@@ -46,6 +47,17 @@ export default function Page({ params }: any) {
           style={{ wordBreak: "break-word" }}
         >
           <MDXContent />
+        </div>
+      </div>
+      <div className="flex flex-col items-center justify-center space-y-5 lg:mt-10 my-10">
+        <span className="text-lg leading-6 text-gray-900">
+          Share article
+        </span>
+        <div className="mt-5 flex space-x-5">
+          <TwitterShare slug={post?.slug} title={post.title} />
+          <FacebookShare slug={post?.slug} title={post.title} />
+          <LinkedinShare slug={post?.slug} />
+          <RedditShare slug={post?.slug} title={post.title} />
         </div>
       </div>
     </section>
