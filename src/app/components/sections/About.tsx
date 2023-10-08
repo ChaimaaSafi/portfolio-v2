@@ -19,8 +19,8 @@ const SKILLS = [
 function About() {
   return (
     <section className="text-white" id="about">
-      <div className="md:max-w-[1400px]  md:mx-auto h-full px-3 flex flex-col md:flex-row justify-between md:space-x-3  items-center">
-        <div className="md:w-3/5 text-justify order-last md:order-first">
+      <div className="lg:max-w-[1400px]  lg:mx-auto h-full px-3 flex flex-col lg:flex-row justify-between md:space-x-3  items-center">
+        <div className="lg:w-3/5 text-justify order-last lg:order-first md:mt-8 lg:mt-0">
           <div>
             <h1 className="text-2xl capitalize font-semibold text-yellow-primary mb-5">
               About me
@@ -58,7 +58,7 @@ function About() {
           </div>
         </div>
         <div>
-          <div className="mb-5 relative md:mb-0 md:w-[450px] md:h-[500px] h-[250px] w-[300px] rounded-lg">
+          <div className="mb-5 relative md:mb-0 md:w-[730px] lg:w-[450px] md:h-[500px] h-[250px] w-[300px] rounded-lg">
             <Image
               src={me}
               alt="me"
