@@ -53,4 +53,9 @@ export default makeSource({
         },
       ],
     ],
-  },})
+    //@ts-ignore
+    esbuild: {
+      esbuild: true,
+    },
+  },
+})
