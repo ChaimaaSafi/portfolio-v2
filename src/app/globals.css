@@ -39,6 +39,11 @@ li {
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+.highlight {
+  background-color: yellow;
+  font-weight: bold;
+}
+
 .bg-main {
   background: #C33764;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to right, #1D2671, #C33764);  /* Chrome 10-25, Safari 5.1-6 */
@@ -199,6 +204,9 @@ pre {
   scroll-margin-top: 100px;
 }
 
+.prose  h1{
+  text-size: 80px !important;
+}
 pre::-webkit-scrollbar {
   display: none;
 }
@@ -214,9 +222,5 @@ pre {
 
 .rehype-code-title + pre {
   @apply mt-0 rounded-t-none;
-}
-
-.highlight-line {
-  @apply block px-4 -mx-4 bg-grayish-100 border-l-4 border-blue-500;
 }
 
