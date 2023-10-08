@@ -46,11 +46,17 @@ var contentlayer_config_default = makeSource({
           }
         }
       ]
-    ]
+    ],
+    esbuild: {
+      // Add @mdx-js/esbuild options here
+      // For example, to enable esbuild for MDX, you can set it to true
+      // Other esbuild options can be configured here as well
+      esbuild: true
+    }
   }
 });
 export {
   Post,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-FTIZGYKJ.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-XUQMLSK7.mjs.map

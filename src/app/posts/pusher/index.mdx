@@ -1,0 +1,99 @@
+---
+title: Real-time Notifications with Pusher in Next.js
+date: 2023-05-03
+hero: /assets/pusher-nextjs/hero.png
+description: How to use Pusher in a Next.js app to receive notifications in real-time?
+---
+
+
+Pusher is a cloud-based platform that provides real-time APIs and tools to build scalable and reliable real-time applications. It enables you to send and receive real-time messages between your clients and servers, making it easy to build real-time features into your web and mobile applications. Pusher uses WebSockets to establish a persistent, bidirectional connection between the client and server. This allows you to send and receive messages in real-time, without the need for polling or long-polling.
+
+In this tutorial, we'll explore how to use Pusher in a Next.js app to receive notifications in real-time.
+
+## **Setting up Pusher**
+
+To use Pusher in a Next.js app, you'll need to follow these steps:
+
+1. Create a new Pusher app in the Pusher dashboard, you can sign up for a free account at [https://pusher.com/](https://pusher.com/)
+2. Get your Pusher app credentials (app ID, key, and secret) and save them in a <span style={{backgroundColor: "#FFD6D6", fontWeight: "500", padding: "1px 3px"}}>.env.local</span>
+ file in your Next.js app
+3.  Install the <span style={{backgroundColor: "#FFD6D6", fontWeight: "500", padding: "1px 3px"}}>pusher-js</span> library in your Next.js app using.
+
+```bash
+npm install pusher-js
+or
+yarn add pusher-js
+```
+
+4. Create a new Pusher instance in your Next.js app and subscribe to a channel to receive notifications.
+
+<div className="Image__Small">
+  <img
+    src="/assets/pusher-nextjs/pusher-channel.png"
+    alt="Finally"
+  />
+</div>
+
+# **Receiving notifications with Pusher**
+
+Once you've set up Pusher in your Next.js app, you can start receiving notifications in real-time. Here's how:
+
+1. Bind an event listener to the Pusher channel in your Next.js app to listen for incoming notifications (Go to your channel ⇒ Debug console ⇒ create Event).
+
+
+<div className="Image__Small">
+  <img
+    src="/assets/pusher-nextjs/pusher-event.png"
+    alt="Finally"
+  />
+</div>
+
+2. Update the state of your app when a new notification is received using <span style={{backgroundColor: "#FFD6D6", fontWeight: "500", padding: "1px 3px"}}>useState</span>.
+3. Display the notifications received in your app.
+
+```jsx
+import React, { useState, useEffect } from 'react';
+import Pusher from 'pusher-js';
+
+const pusher = new Pusher(process.env.NEXT_PUBLIC_PUSHER_KEY, {
+  cluster: process.env.NEXT_PUBLIC_PUSHER_CLUSTER,
+});
+
+const Notifications = () => {
+  const [notifications, setNotifications] = useState([]);
+
+  useEffect(() => {
+    const channel = pusher.subscribe(YOUR_CHANNEL_NAME);
+
+    channel.bind(YOUR_EVENT_NAME, data => {
+      setNotifications([...notifications, data]);
+    });
+
+    return () => {
+      pusher.unsubscribe(YOUR_CHANNEL_NAME);
+    };
+  }, [notifications]);
+
+  return (
+    <div>
+      <h2>Notifications</h2>
+      <ul>
+        {notifications.map(notification => (
+          <li key={notification.id}>{notification.message}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default Notifications;
+
+```
+In this example, we're creating a new Pusher instance and subscribing to a channel named <span style={{backgroundColor: "#FFD6D6", fontWeight: "500", padding: "1px 3px"}}>YOUR_CHANNEL_NAME</span>.  We're then binding an event listener to the <span style={{backgroundColor: "#FFD6D6", fontWeight: "500", padding: "1px 3px"}}>YOUR_EVENT_NAME</span> event on the channel, which will be triggered whenever a new notification is received. When a new notification is received, we're updating the state of our app using <span style={{backgroundColor: "#FFD6D6", fontWeight: "500", padding: "1px 3px"}}>useState</span>. We're then rendering the received notifications in a list.
+
+Note that in order to use this code, you'll need to replace NEXT_PUBLIC_PUSHER_KEY, and NEXT_PUBLIC_PUSHER_CLUSTER with your actual Pusher key, and cluster.
+
+###
+In this tutorial, we explored how to set up Pusher in a Next.js app and receive notifications in real-time. Using Pusher in a Next.js app is an easy way to add real-time capabilities to your application, and it can greatly enhance the user experience. By following the steps outlined in this tutorial, you can easily integrate Pusher into your own Next.js projects and enable real-time notifications for your users.
+
+
