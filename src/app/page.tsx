@@ -7,7 +7,7 @@ import Works from "@/components/sections/Works";
 export default function Home() {
   return (
     <section className="bg-main">
-      <div className="md:max-w-7xl  w-full md:mx-auto px-2">
+      <div className="md:max-w-7xl  w-full md:mx-auto px-3">
         <Hero />
         <About />
         <Works />
