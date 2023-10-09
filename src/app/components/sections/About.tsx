@@ -26,7 +26,7 @@ function About() {
               About me
             </h1>
             <p className="text-base leading-8 font-normal">
-              Hello, I'm Chaimaa Safi, a front-end developer who is passionate
+              Hello, I`&apos;`m Chaimaa Safi, a front-end developer who is passionate
               about coding, programming, and exploring new possibilities. I find
               joy in constantly learning and trying new things in this dynamic
               domain. Alongside my love for technology, I also have a deep
