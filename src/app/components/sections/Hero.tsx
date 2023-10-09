@@ -17,8 +17,8 @@ function Hero() {
 
   return (
 
-    <motion.section className="w-full flex justify-between items-center h-screen"  
-       style={{ opacity }}
+    <motion.section className="w-full flex  pt-10 md:pt-0  flex-col md:flex-row md:justify-between md:items-center h-screen"  
+    style={{ opacity }}
     ref={targetRef}
     animate={{ x: [100, -100, 0], opacity: 1, scale: 1 }}
     transition={{
@@ -61,7 +61,7 @@ function Hero() {
             duration: 0.8,
             type: "spring",
           }}
-          className="absolute lg:w-[350px] lg:h-[500px] w-[250px] h-[360px] bg-yellow-400 rounded-lg flex items-center justify-center"
+          className="absolute xl:w-[350px] xl:h-[500px] w-[250px] md:w-[220px] h-[360px] bg-yellow-400 rounded-lg flex items-center justify-center"
         >
           <motion.div>
             <p className="text-2xl font-light italic">Enjoy your visit ❤️</p>
@@ -76,7 +76,7 @@ function Hero() {
             damping: 8,
             delay: 1,
           }}
-          className="lg:w-[330px] lg:h-[450px] w-[230px] h-[300px] bg-red-400 rounded-lg shadow-lg shadow-gray-100"
+          className="xl:w-[330px] xl:h-[450px] w-[230px] h-[300px] bg-red-400 rounded-lg shadow-lg shadow-gray-100"
         >
           <Image
             src={me}

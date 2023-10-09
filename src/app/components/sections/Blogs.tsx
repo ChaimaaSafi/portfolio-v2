@@ -8,7 +8,7 @@ import { allPosts } from "contentlayer/generated";
 function Blogs() {
   const posts = allPosts;
   return (
-    <div className="px-1 py-36">
+    <div className="px-1 py-10 md:py-36">
       <h2 className="text-2xl w-full capitalize font-semibold text-yellow-primary mb-5">
         Blogs
       </h2>

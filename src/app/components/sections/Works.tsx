@@ -39,15 +39,9 @@ const WORKS = [
 ];
 
 function Works({}: Props) {
-  const [link, setLink] = useState<string>("Portfolly");
-
-  const links_variants = {
-    active: { scale: 1.2, x: "25px" },
-    inactive: { scale: 1, x: "0" },
-  };
   return (
     <section
-      className="flex flex-col pt-60 w-full"
+      className="flex flex-col pt-10 md:pt-40 w-full"
     >
       <h2 className="text-2xl w-full capitalize font-semibold text-yellow-primary mb-5">
         My Work
