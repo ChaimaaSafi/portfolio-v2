@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
-import FacebookIcon from '@/icons/SocialLinks/FacebookIcon';
-import GithubIcon from '@/icons/SocialLinks/GithubIcon';
-import LinkedinIcon from '@/icons/SocialLinks/LinkedinIcon';
-import RedditIcon from '@/icons/SocialLinks/RedditIcon';
-import TwitterIcon from '@/icons/SocialLinks/TwitterIcon';
+import FacebookIcon from "@/icons/SocialLinks/FacebookIcon";
+import GithubIcon from "@/icons/SocialLinks/GithubIcon";
+import LinkedinIcon from "@/icons/SocialLinks/LinkedinIcon";
+import RedditIcon from "@/icons/SocialLinks/RedditIcon";
+import TwitterIcon from "@/icons/SocialLinks/TwitterIcon";
 
 export const TwitterShare = ({
   slug,
@@ -16,7 +16,7 @@ export const TwitterShare = ({
   const ShareURL = `https://twitter.com/intent/tweet?text=${title}&url=https://www.obytes.com/blog/${slug}`;
   return (
     <a href={ShareURL} target="_blank" rel="noopener noreferrer">
-      <TwitterIcon />
+      <TwitterIcon className="fill-[#7D7D7D] hover:fill-[#1DA1F2]" />
     </a>
   );
 };
@@ -32,7 +32,7 @@ export const FacebookShare = ({
 
   return (
     <a href={ShareURL} target="_blank" rel="noopener noreferrer">
-      <FacebookIcon />
+      <FacebookIcon className="fill-[#7D7D7D] hover:fill-[#4267B2]" />
     </a>
   );
 };
@@ -42,7 +42,7 @@ export const LinkedinShare = ({ slug }: { slug: string }) => {
 
   return (
     <a href={ShareURL} target="_blank" rel="noopener noreferrer">
-      <LinkedinIcon />
+      <LinkedinIcon className="fill-[#7D7D7D] hover:fill-[#0A66C2]" />
     </a>
   );
 };
@@ -58,7 +58,7 @@ export const RedditShare = ({
 
   return (
     <a href={ShareURL} target="_blank" rel="noopener noreferrer">
-      <RedditIcon />
+      <RedditIcon className="fill-[#7D7D7D] hover:fill-[#FF5700]" />
     </a>
   );
 };
@@ -68,7 +68,7 @@ export const RedditShare = ({
 export const Linkedin = ({ url }: { url: string }) => {
   return (
     <a href={url} target="_blank" rel="noopener noreferrer">
-      <LinkedinIcon />
+      <LinkedinIcon className="fill-[#fff]" />
     </a>
   );
 };
@@ -76,7 +76,7 @@ export const Linkedin = ({ url }: { url: string }) => {
 export const Twitter = ({ url }: { url: string }) => {
   return (
     <a href={url} target="_blank" rel="noopener noreferrer">
-      <TwitterIcon />
+      <TwitterIcon className="fill-[#fff]" />
     </a>
   );
 };
@@ -84,7 +84,7 @@ export const Twitter = ({ url }: { url: string }) => {
 export const GitHub = ({ url }: { url: string }) => {
   return (
     <a href={url} target="_blank" rel="noopener noreferrer">
-      <GithubIcon />
+      <GithubIcon  className="fill-[#fff]"/>
     </a>
   );
 };
