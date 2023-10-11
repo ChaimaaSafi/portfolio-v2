@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 const VARIANTS: { [key: string]: string } = {
   primary: "bg-yellow-primary text-black-hero px-5 py-3 ",
@@ -15,7 +15,30 @@ type TButton = {
 };
 
 function Button({ type, icon, className, children }: TButton) {
-  return (
+  return type === "primary" ? (
+    <AnimatePresence>
+      <motion.button
+        initial={{
+          background: "linear-gradient(to left, #F8C43A, #E95793) right",
+          backgroundSize: "200%",
+        }}
+        whileHover={{
+          backgroundPosition: "left",
+          background: "linear-gradient(to right, #C8AE7D, #313866)",
+          transition: { duration: .2, ease: "easeOut" },
+        }}
+        whileTap={{ scale: 0.9 }}
+        style={{
+          color: "white",
+        }}
+        className={`${className} flex cursor-pointer items-center justify-center space-x-2  rounded-md text-sm lg:text-lg font-semibold normal-case 
+         disabled:cursor-not-allowed disabled:opacity-50 ${VARIANTS[type]}`}
+      >
+        {icon && <p>{icon}</p>}
+        {children}
+      </motion.button>
+    </AnimatePresence>
+  ) : (
     <motion.button
       className={`${className} flex cursor-pointer items-center justify-center space-x-2  rounded-md text-sm lg:text-lg font-semibold normal-case 
    disabled:cursor-not-allowed disabled:opacity-50 ${VARIANTS[type]}`}
