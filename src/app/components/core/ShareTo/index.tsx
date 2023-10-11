@@ -68,7 +68,7 @@ export const RedditShare = ({
 export const Linkedin = ({ url }: { url: string }) => {
   return (
     <a href={url} target="_blank" rel="noopener noreferrer">
-      <LinkedinIcon className="fill-[#fff]" />
+      <LinkedinIcon className="fill-[#fff] hover:shadow-md hover:shadow-gray-200 rounded-md transition duration-300 delay-100" />
     </a>
   );
 };
@@ -76,7 +76,7 @@ export const Linkedin = ({ url }: { url: string }) => {
 export const Twitter = ({ url }: { url: string }) => {
   return (
     <a href={url} target="_blank" rel="noopener noreferrer">
-      <TwitterIcon className="fill-[#fff]" />
+      <TwitterIcon className="fill-[#fff] hover:shadow-md hover:shadow-gray-200 rounded-md transition duration-300 delay-100" />
     </a>
   );
 };
@@ -84,7 +84,7 @@ export const Twitter = ({ url }: { url: string }) => {
 export const GitHub = ({ url }: { url: string }) => {
   return (
     <a href={url} target="_blank" rel="noopener noreferrer">
-      <GithubIcon  className="fill-[#fff]"/>
+      <GithubIcon  className="fill-[#fff] hover:shadow-md hover:shadow-gray-200 rounded-full transition duration-300 delay-100"/>
     </a>
   );
 };

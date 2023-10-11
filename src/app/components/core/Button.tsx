@@ -32,7 +32,7 @@ function Button({ type, icon, className, children }: TButton) {
           color: "white",
         }}
         className={`${className} flex cursor-pointer items-center justify-center space-x-2  rounded-md text-sm lg:text-lg font-semibold normal-case 
-         disabled:cursor-not-allowed disabled:opacity-50 ${VARIANTS[type]}`}
+         disabled:cursor-not-allowed disabled:opacity-50 shadow shadow-gray-50 ${VARIANTS[type]}`}
       >
         {icon && <p>{icon}</p>}
         {children}
