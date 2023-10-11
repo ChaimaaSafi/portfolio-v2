@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { SVGProps } from "react";
 
-function RedditIcon() {
+function RedditIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="30"
       height="30"
       viewBox="0 0 21 21"
-      className="fill-[#7D7D7D] hover:fill-[#FF5700]"
       xmlns="http://www.w3.org/2000/svg"
+      {...props}
+
     >
       <path
         fillRule="evenodd"

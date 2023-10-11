@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { SVGProps } from 'react';
 
-function FacebookIcon() {
+function FacebookIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       width="30"
       height="30"
       viewBox="0 0 21 21"
       xmlns="http://www.w3.org/2000/svg"
-      className="fill-[#7D7D7D] hover:fill-[#4267B2]"
+      {...props}
+
     >
       <path
         fillRule="evenodd"
