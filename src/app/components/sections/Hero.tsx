@@ -4,7 +4,8 @@ import Link from "next/link";
 import React, { useRef } from "react";
 import me from "@/public/assets/me.png";
 import Button from "@/components/core/Button";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useAnimation, useScroll, useTransform } from "framer-motion";
+import { GitHub, Linkedin, Twitter } from "@/components/core/ShareTo";
 
 function Hero() {
   const targetRef = useRef<HTMLDivElement>(null);
@@ -14,6 +15,7 @@ function Hero() {
     offset: ["start start", "end start"],
   });
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
 
   return (
 
@@ -39,6 +41,12 @@ function Hero() {
         <Link href="/#about" className="md:w-[200px] mt-4">
           <Button type="primary">Know more</Button>
         </Link>
+
+        <div className="flex items-center space-x-3 py-4">
+          <Linkedin url="https://www.linkedin.com/in/chaimaasafi/"/>
+          <GitHub url="https://github.com/ChaimaaSafi"/>
+          <Twitter url="https://twitter.com/safi_chaimaa"/>
+        </div>
       </div>
       <div className=" relative h-[400px] md:hidden w-full rounded-lg">
         <Image
