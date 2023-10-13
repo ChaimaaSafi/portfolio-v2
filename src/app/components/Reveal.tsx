@@ -12,7 +12,6 @@ function Reveal({ children }: Props) {
 
   useEffect(() => {
     if(isInView) {
-        console.log(isInView)
         mainControls.start("visible")
     }
   }, [isInView]);
