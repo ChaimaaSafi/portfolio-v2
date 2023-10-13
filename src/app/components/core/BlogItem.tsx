@@ -8,15 +8,15 @@ type TBlog = {
   hero: string | any ;
   title: string;
   description: string;
-  _raw: any;
+  link: string;
   style?: string;
 };
 
-const BlogItem = ({ title, hero, description, _raw, style = 'non-full' }: TBlog) => {
+const BlogItem = ({ title, hero, description, link, style = 'non-full' }: TBlog) => {
   return (
     <div className="w-full">
       <Link
-        href={`blog/${_raw.flattenedPath}`}
+        href={`blog/${link}`}
         target="_blank"
         className={`flex  rounded-md h-full bg-[conic-gradient(at_left,_var(--tw-gradient-stops))]
         from-yellow-500 via-purple-500 to-blue-500 shadow-lg shadow-gray-500 

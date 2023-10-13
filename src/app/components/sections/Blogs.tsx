@@ -22,13 +22,13 @@ function Blogs() {
               hero={posts[0]?.hero}
               title={posts[0].title}
               description={posts[0].description}
-              _raw={posts[0]._raw.flattenedPath}
+              link={posts[0]._raw.flattenedPath}
             />
             <BlogItem
               hero={posts[1]?.hero}
               title={posts[1].title}
               description={posts[1].description}
-              _raw={posts[1]._raw.flattenedPath}
+              link={posts[1]._raw.flattenedPath}
             />
           </div>
         </Reveal>
@@ -38,7 +38,7 @@ function Blogs() {
               hero={posts[2]?.hero}
               title={posts[2].title}
               description={posts[2].description}
-              _raw={posts[2]._raw.flattenedPath}
+              link={posts[2]._raw.flattenedPath}
               style="full"
             />
           </div>
