@@ -3,6 +3,7 @@ import About from "@/components/sections/About";
 import Blogs from "@/components/sections/Blogs";
 import Hero from "@/components/sections/Hero";
 import Works from "@/components/sections/Works";
+import Footer from "@/components/sections/Footer";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
         <About />
         <Works />
         <Blogs />
+        <Footer />
       </div>
     </section>
   );

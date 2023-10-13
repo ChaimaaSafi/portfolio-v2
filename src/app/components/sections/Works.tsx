@@ -1,10 +1,11 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import img_1 from "@/public/assets/projects/portfolly.png";
 import img_2 from "@/public/assets/projects/day_dhikr.png";
 import img_3 from "@/public/assets/projects/custom_code.png";
 import img_4 from "@/public/assets/projects/obytes.png";
 import WorkRow from "@/components/core/WorkRow";
+import Reveal from "../Reveal";
 
 type Props = {};
 
@@ -40,17 +41,21 @@ const WORKS = [
 
 function Works({}: Props) {
   return (
-    <section
-      className="flex flex-col pt-10 md:pt-40 w-full"
-    >
-      <h2 className="text-2xl w-full capitalize font-semibold text-yellow-primary mb-5">
-        My Work
-      </h2>
-      <div
-        className="h-full flex flex-col"
-      >
+    <section className="flex flex-col pt-10 md:pt-40 w-full">
+      <Reveal>
+        <h2 className="text-2xl w-full capitalize font-semibold text-yellow-primary mb-5">
+          My Work
+        </h2>
+      </Reveal>
+
+      <div className="h-full flex flex-col">
         {WORKS.map((props, index: number) => (
-          <WorkRow key={index} {...props} className="py-8 border-b border-orange-300 last:border-b-0" />
+          <Reveal key={index}>
+            <WorkRow
+              {...props}
+              className="py-8 border-b border-orange-300 last:border-b-0"
+            />
+          </Reveal>
         ))}
       </div>
     </section>

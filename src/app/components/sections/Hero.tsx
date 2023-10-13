@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useRef } from "react";
@@ -16,18 +16,18 @@ function Hero() {
   });
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
-
   return (
-
-    <motion.section className="w-full flex  pt-10 md:pt-0  flex-col md:flex-row md:justify-between md:items-center h-screen"  
-    style={{ opacity }}
-    ref={targetRef}
-    animate={{ x: [100, -100, 0], opacity: 1, scale: 1 }}
-    transition={{
-      duration: 1.2,
-      ease: [0.2, 0.2, 0.76, 1],
-    }}
-    initial={{ opacity: 0, scale: 0.5 }}>
+    <motion.section
+      className="w-full flex pt-10 md:pt-0 flex-col md:flex-row md:justify-between md:items-center h-screen overflow-hidden"
+      style={{ opacity }}
+      ref={targetRef}
+      initial={{x:'-80vh' , opacity: 0, scale: 0.5 }}
+      animate={{ x: 0, opacity: 1, scale: 1 }}
+      transition={{
+        duration: 1.4,
+        delay: 0.2
+      }}
+    >
       <div className="flex flex-col space-y-1.5 text-white order-last md:order-first mt-10 md:mt-0">
         <h2 className="text-base lg:text-xl font-semibold">
           Oh Hey! My name is
@@ -43,9 +43,9 @@ function Hero() {
         </Link>
 
         <div className="flex items-center space-x-3 py-4">
-          <Linkedin url="https://www.linkedin.com/in/chaimaasafi/"/>
-          <GitHub url="https://github.com/ChaimaaSafi"/>
-          <Twitter url="https://twitter.com/safi_chaimaa"/>
+          <Linkedin url="https://www.linkedin.com/in/chaimaasafi/" />
+          <GitHub url="https://github.com/ChaimaaSafi" />
+          <Twitter url="https://twitter.com/safi_chaimaa" />
         </div>
       </div>
       <div className=" relative h-[400px] md:hidden w-full rounded-lg">
@@ -69,7 +69,7 @@ function Hero() {
             duration: 0.8,
             type: "spring",
           }}
-          className="absolute xl:w-[350px] xl:h-[500px] w-[250px] md:w-[220px] h-[360px] bg-yellow-400 rounded-lg flex items-center justify-center"
+          className="absolute xl:w-[325px] xl:h-[500px] w-[250px] md:w-[220px] h-[360px] bg-yellow-400 rounded-lg flex items-center justify-center"
         >
           <motion.div>
             <p className="text-2xl font-light italic">Enjoy your visit ❤️</p>
@@ -82,7 +82,7 @@ function Hero() {
             type: "spring",
             mass: 0.5,
             damping: 8,
-            delay: 1,
+            delay: 1.3,
           }}
           className="xl:w-[330px] xl:h-[450px] w-[230px] h-[300px] bg-red-400 rounded-lg shadow-lg shadow-gray-100"
         >
