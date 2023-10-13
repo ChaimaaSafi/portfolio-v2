@@ -13,7 +13,7 @@ const WORKS = [
   {
     name: "Portfolly",
     description:
-      "As a proud member of the Portfolly team, I contributed to the development of an innovative website that empowers developers to effortlessly create their professional portfolios with just one click. Portfolly is a game-changing platform that streamlines the portfolio-building process, saving valuable time and effort for developers of all levels.",
+      "Portfolly is a game-changing platform that streamlines the portfolio-building process, saving valuable time and effort for developers of all levels. Let's Create Yours",
     link: "https://portfolly.io/",
     imgSrc: img_1,
   },
