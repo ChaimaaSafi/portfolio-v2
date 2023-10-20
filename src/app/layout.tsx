@@ -5,8 +5,20 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Chaimaa Safi',
-  description: 'Happy to see you here',
+  title: "Chaimaa Safi",
+  description: "Welcome to my portfolio!Enjoy your visit",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://portfolio-v2-phi-bay.vercel.app/",
+    images: [
+      {
+        url: "https://portfolio-v2-phi-bay.vercel.app/assets/og-image.png",
+        height: 1200,
+        width: 630,
+      },
+    ],
+  },
 }
 
 export default function RootLayout({
