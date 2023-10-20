@@ -8,8 +8,10 @@ export const metadata: Metadata = {
   title: "Chaimaa Safi",
   description: "Welcome to my portfolio!Enjoy your visit",
   openGraph: {
-    type: "website",
-    locale: "en_US",
+    title: "Chaimaa Safi",
+    description: "Welcome to my portfolio!Enjoy your visit",
+    locale: 'en_US',
+    type: 'website',
     url: "https://portfolio-v2-phi-bay.vercel.app/",
     images: [
       {
