@@ -1,5 +1,6 @@
 import './globals.css'
 import type { Metadata } from 'next'
+import { Head, Html } from 'next/document'
 import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -27,8 +28,22 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <Html lang="en" >
+      <Head>
+      <meta property="og:title" content="Chaimaa Safi" />
+        <meta
+          property="og:description"
+          content="Welcome to my portfolio!Enjoy your visit"
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="" />
+        <meta property="og:image:secure_url" content="" />
+        <meta
+          property="og:url"
+          content="https://portfolio-v2-phi-bay.vercel.app/assets/og-image.png"
+        />
+      </Head>
       <body className={inter.className}>{children}</body>
-    </html>
+    </Html>
   )
 }
