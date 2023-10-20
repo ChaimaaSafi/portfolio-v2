@@ -19,10 +19,10 @@ const BlogItem = ({ title, hero, description, link, style = 'non-full' }: TBlog)
         href={`blog/${link}`}
         target="_blank"
         className={`flex  rounded-md h-full bg-[conic-gradient(at_left,_var(--tw-gradient-stops))]
-        from-yellow-500 via-purple-500 to-blue-500 shadow-lg shadow-gray-500 
+        from-yellow-500 via-purple-500 to-blue-500
         ${style === 'full' ? "md:flex-row justify-between space-x-3 items-center flex-col md:pb-0 pb-5": "flex-col pb-5 "}
         `}>
-        <div className={`relative h-[300px] w-full rounded-md`}>
+        <div className={`relative  h-[200px] ${style? "md:h-[400px]":"md:h-[300px]"} w-full rounded-md`}>
           <Image
             src={hero as string}
             alt={title}
