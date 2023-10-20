@@ -1,9 +1,8 @@
-import './globals.css'
-import type { Metadata } from 'next'
-import { Head, Html } from 'next/document'
-import { Inter } from 'next/font/google'
+import "./globals.css";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Chaimaa Safi",
@@ -20,17 +19,17 @@ export const metadata: Metadata = {
       },
     ],
   },
-}
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <Html lang="en" >
-      <Head>
-      <meta property="og:title" content="Chaimaa Safi" />
+    <html lang="en">
+      <head>
+        <meta property="og:title" content="Chaimaa Safi" />
         <meta
           property="og:description"
           content="Welcome to my portfolio!Enjoy your visit"
@@ -42,8 +41,8 @@ export default function RootLayout({
           property="og:url"
           content="https://portfolio-v2-phi-bay.vercel.app/assets/og-image.png"
         />
-      </Head>
+      </head>
       <body className={inter.className}>{children}</body>
-    </Html>
-  )
+    </html>
+  );
 }
