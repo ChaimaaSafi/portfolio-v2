@@ -6,6 +6,13 @@ body {
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none; /* Standard syntax */
+  overflow: auto;
+  height: 100%;
+}
+
+html {
+  overflow: hidden;
+  height: 100%;
 }
 
 h2 {
@@ -22,8 +29,6 @@ a {
 li {
   list-style-type: none;
 }
-
-
 
 .bg-hero-home {
   background: #141e30; /* fallback for old browsers */
@@ -45,10 +50,17 @@ li {
 }
 
 .bg-main {
-  background: #C33764;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #1D2671, #C33764);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #1D2671, #C33764); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  background: #c33764; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #1d2671,
+    #c33764
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #1d2671,
+    #c33764
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .prose .anchor {
   @apply absolute invisible no-underline;
@@ -204,7 +216,7 @@ pre {
   scroll-margin-top: 100px;
 }
 
-.prose  h1{
+.prose h1 {
   text-size: 80px !important;
 }
 pre::-webkit-scrollbar {
@@ -223,4 +235,3 @@ pre {
 .rehype-code-title + pre {
   @apply mt-0 rounded-t-none;
 }
-
