@@ -1,4 +1,4 @@
- "use client"
+"use client";
 import { motion, useAnimation, useInView } from "framer-motion";
 import React, { useEffect, useRef } from "react";
 
@@ -8,32 +8,31 @@ type Props = {
 function Reveal({ children }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
-  const mainControls =  useAnimation()
+  const mainControls = useAnimation();
 
   useEffect(() => {
-    if(isInView) {
-        mainControls.start("visible")
+    if (isInView) {
+      mainControls.start("visible");
     }
   }, [isInView]);
   return (
     <div ref={ref} className="relative overflow-hidden">
-    <motion.div
-    variants={{
-        hidden: {opacity: 0, y: 175},
-        visible: {opacity: 1, y: 0},
-    }}
-    initial="hidden"
-    animate={mainControls}
-    transition={{
-        duration: 0.6,
-        delay:  0.3
-    }}
-    >
+      <motion.div
+        variants={{
+          hidden: { opacity: 0, y: 175 },
+          visible: { opacity: 1, y: 0 },
+        }}
+        initial="hidden"
+        animate={mainControls}
+        transition={{
+          duration: 0.6,
+          delay: 0.3,
+        }}
+      >
         {children}
-    </motion.div>
+      </motion.div>
     </div>
   );
 }
-
 
 export default Reveal;
