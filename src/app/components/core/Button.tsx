@@ -18,20 +18,15 @@ function Button({ type, icon, className, children }: TButton) {
   return type === "primary" ? (
     <AnimatePresence>
       <motion.button
-        initial={{
-          background: "linear-gradient(to left, #F8C43A, #E95793) right",
-          backgroundSize: "200%",
-        }}
         whileHover={{
-          backgroundPosition: "left",
-          background: "linear-gradient(to right, #C8AE7D, #313866)",
-          transition: { duration: .2, ease: "easeOut" },
+          scale: 1.1,
+          boxShadow: "0px 0px 8px 2px rgba(255, 255, 255, 0.75)",
+          marginLeft: "18px",
+          transition: { duration: 0.3 },
+          filter: "brightness(1.2)",
         }}
         whileTap={{ scale: 0.9 }}
-        style={{
-          color: "white",
-        }}
-        className={`${className} flex cursor-pointer items-center justify-center space-x-2  rounded-md text-sm lg:text-lg font-semibold normal-case 
+        className={`${className} flex ml-1 text-white cursor-pointer items-center justify-center space-x-2  rounded-md text-sm lg:text-lg font-semibold normal-case 
          disabled:cursor-not-allowed disabled:opacity-50 shadow shadow-gray-50 ${VARIANTS[type]}`}
       >
         {icon && <p>{icon}</p>}
