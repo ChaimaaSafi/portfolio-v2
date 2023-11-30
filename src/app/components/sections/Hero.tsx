@@ -21,11 +21,11 @@ function Hero() {
       className="w-full flex pt-10 md:pt-0 flex-col md:flex-row md:justify-between md:items-center h-screen overflow-hidden"
       style={{ opacity }}
       ref={targetRef}
-      initial={{x:'-80vh' , opacity: 0, scale: 0.5 }}
+      initial={{ x: "-80vh", opacity: 0, scale: 0.5 }}
       animate={{ x: 0, opacity: 1, scale: 1 }}
       transition={{
         duration: 1.4,
-        delay: 0.2
+        delay: 0.2,
       }}
     >
       <div className="flex flex-col space-y-1.5 text-white order-last md:order-first mt-10 md:mt-0">
@@ -57,7 +57,7 @@ function Hero() {
           placeholder="blur"
         />
       </div>
-      <div className="relative hidden md:block ">
+      <div className="relative hidden md:block md:mx-28">
         <motion.div
           whileHover={{
             scale: 0.8,
